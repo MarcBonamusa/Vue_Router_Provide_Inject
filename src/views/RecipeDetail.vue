@@ -1,47 +1,58 @@
 <script setup>
 
+import { ref, watch } from "vue";
 import { useRoute } from "vue-router";
 
-const receptes = [
+const receptes = ref([
   { id: 1, name: 'Paella Valenciana', desc: 'Plat d’arròs tradicional, sovint amb pollastre, conill i verdures, de València.', ingredients: ['Arròs', 'Pollastre i Conill', 'Fesols tendres', 'Tomàquet triturat' ], pasos: ['Sofregir carn i verdures', 'Afegir aigua i safrà; bullir', 'Incorporar l’arròs', 'Coure 20 minuts i deixar reposar'], imatge: "https://media.istockphoto.com/id/1341711088/es/foto/receta-de-arroz-de-paella-de-espa%C3%B1a.jpg?s=612x612&w=0&k=20&c=JFm-PGsbm7zB00dO8MbqQ7dBl1vrlFeZ-h76wE6Mq9A=" },
   { id: 2, name: 'Tortilla de Patatas', desc: 'Truita espanyola, feta amb ous, patates i sovint ceba. Un clàssic imprescindible.', ingredients: ['Patates', 'Ous', 'Ceba'], pasos: ['Tallar patates/ceba', 'Escórrer i barrejar amb ous batuts', 'Quallar la truita girant-la'], imatge: "https://jetextramar.com/wp-content/uploads/2020/07/page3_image4.jpg" },
   { id: 3, name: 'Gazpacho Andaluz', desc: 'Sopa freda de tomàquet i verdures crues, típica d’Andalusia, ideal per a l’estiu.', ingredients: ['Tomàquets', 'Pebrot verd', 'Cogombre', 'All', 'Vinagre', 'Pa dur'], pasos: ['Triturar totes les verdures amb líquids i sal', 'Refredar i servir molt fred'], imatge: "https://img.freepik.com/foto-gratis/sopa-gazpacho-espanol-tradicional-recipiente-aislado-sobre-fondo-blanco_123827-25393.jpg" }
-];
+]);
 
 const route = useRoute();
 
-const receptaID = parseInt(route.params.id);
+const recepta = ref(null)
 
-const recepta = receptes.find((f) => f.id == receptaID);
+const carregarRecepta = (id) => {
+    const newID = parseInt(id)
+    recepta.value = receptes.value.find(f => f.id === newID) || null
+}
+
+carregarRecepta(route.params.id)
+
+watch(
+    () => route.params.id,
+    (newID) => carregarRecepta(newID)
+)
 
 </script>
 
 <template>
   <div v-if="recepta" class="targeta-detall">
-    <div class="contingut-detall">
-        <div class="contenidor-imatge-detall">
-            <img :src="recepta.imatge">
-        </div>
+      <div class="contingut-detall">
+          <div class="contenidor-imatge-detall">
+                <img :src="recepta.imatge">
+          </div>
 
-        <div class="info-recepta">
-            <h1 class="titol-recepta">{{ recepta.name }}</h1>
-            <p class="descripcio-recepta">{{ recepta.desc }}</p>
-            
-            <h2 class="subtitol-llista">Ingredients:</h2>
-            <ul class="llista-ingredients">
-            <li v-for="ingredient in recepta.ingredients" :key="ingredient">
-                {{ ingredient }}
-            </li>
-            </ul>
+          <div class="info-recepta">
+                <h1 class="titol-recepta">{{ recepta.name }}</h1>
+                <p class="descripcio-recepta">{{ recepta.desc }}</p>
+                
+                <h2 class="subtitol-llista">Ingredients:</h2>
+                <ul class="llista-ingredients">
+                <li v-for="ingredient in recepta.ingredients" :key="ingredient">
+                    {{ ingredient }}
+                </li>
+                </ul>
 
-            <h2 class="subtitol-llista">Pas a pas:</h2>
-            <ul class="llista-pasos">
-            <li v-for="pas in recepta.pasos" :key="pas">
-                {{ pas }}
-            </li>
-            </ul>
-        </div>
-    </div>
+                <h2 class="subtitol-llista">Pas a pas:</h2>
+                <ul class="llista-pasos">
+                <li v-for="pas in recepta.pasos" :key="pas">
+                    {{ pas }}
+                </li>
+                </ul>
+          </div>
+      </div>
   </div>  
 </template>
 

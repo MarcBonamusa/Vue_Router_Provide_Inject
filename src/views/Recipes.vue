@@ -1,3 +1,16 @@
+<script setup>
+
+import { ref } from "vue";
+import { RouterLink } from "vue-router";
+
+const receptes = ref([
+  {id: 1, name: "Paella Valenciana", desc: "Plat d’arròs tradicional, sovint amb pollastre, conill i verdures, de València.", imatge: "https://media.istockphoto.com/id/1341711088/es/foto/receta-de-arroz-de-paella-de-espa%C3%B1a.jpg?s=612x612&w=0&k=20&c=JFm-PGsbm7zB00dO8MbqQ7dBl1vrlFeZ-h76wE6Mq9A="},
+  {id: 2, name: "Tortilla de Patatas", desc: "Truita espanyola, feta amb ous, patates i sovint ceba. Un clàssic imprescindible.", imatge: "https://jetextramar.com/wp-content/uploads/2020/07/page3_image4.jpg" },
+  {id: 3, name: "Gazpacho Andaluz", desc: "Sopa freda de tomàquet i verdures crues, típica d’Andalusia, ideal per a l’estiu.", imatge: "https://img.freepik.com/foto-gratis/sopa-gazpacho-espanol-tradicional-recipiente-aislado-sobre-fondo-blanco_123827-25393.jpg" }
+]);
+
+</script>
+
 <template>
   <div class="llista-receptes-contenidor">
     <h1 class="titol-seccio">Receptes</h1>
@@ -18,19 +31,6 @@
   </div>
   <RouterView/>
 </template>
-
-<script setup>
-
-import { ref } from "vue";
-import { RouterLink } from "vue-router";
-
-const receptes = ref([
-  {id: 1, name: "Paella Valenciana", desc: "Plat d’arròs tradicional, sovint amb pollastre, conill i verdures, de València.", imatge: "https://media.istockphoto.com/id/1341711088/es/foto/receta-de-arroz-de-paella-de-espa%C3%B1a.jpg?s=612x612&w=0&k=20&c=JFm-PGsbm7zB00dO8MbqQ7dBl1vrlFeZ-h76wE6Mq9A="},
-  {id: 2, name: "Tortilla de Patatas", desc: "Truita espanyola, feta amb ous, patates i sovint ceba. Un clàssic imprescindible.", imatge: "https://jetextramar.com/wp-content/uploads/2020/07/page3_image4.jpg" },
-  {id: 3, name: "Gazpacho Andaluz", desc: "Sopa freda de tomàquet i verdures crues, típica d’Andalusia, ideal per a l’estiu.", imatge: "https://img.freepik.com/foto-gratis/sopa-gazpacho-espanol-tradicional-recipiente-aislado-sobre-fondo-blanco_123827-25393.jpg" }
-]);
-
-</script>
 
 <style scoped>
 .llista-receptes-contenidor {

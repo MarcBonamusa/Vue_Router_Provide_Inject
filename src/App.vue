@@ -12,7 +12,7 @@
     </nav>
   </header>
   
-    <RouterView :key="$route.fullPath"/>
+  <RouterView/>
 
 </template>
 
