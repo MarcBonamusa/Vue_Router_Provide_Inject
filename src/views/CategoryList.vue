@@ -3,10 +3,7 @@
 import ProductItem from './ProductItem.vue';
 
 const props = defineProps({
-  products: {
-    type: Array,
-    required: true
-  }
+    products: { type: Array, required: true }
 });
 
 </script>

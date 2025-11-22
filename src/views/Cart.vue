@@ -12,7 +12,7 @@ const esborrarCarret = inject('esborrarCarret');
   <div class="carret">
     <ul class="llista">
       <li v-for="(item, index) in cart" :key="index">
-        {{ item.name }} {{ item.icon }} - {{ item.price }}€
+        {{ item.name }} - {{ item.price }}€
       </li>
     </ul>
 

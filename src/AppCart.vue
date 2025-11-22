@@ -5,10 +5,10 @@ import CategoryList from './views/CategoryList.vue';
 import Cart from './views/Cart.vue';
 
 const products = ref([
-  { id: 1, name: 'Auriculars Wireless', price: 50, icon: '🎧' },
-  { id: 2, name: 'Smartwatch', price: 120, icon: '⌚' },
-  { id: 3, name: 'Teclat Mecanic', price: 80, icon: '⌨️' },
-  { id: 4, name: 'Altaveu Bluetooth', price: 60, icon: '🔊' }
+  { id: 1, name: 'Auriculars Wireless', price: 50 },
+  { id: 2, name: 'Smartwatch', price: 120 },
+  { id: 3, name: 'Teclat Mecanic', price: 80 },
+  { id: 4, name: 'Altaveu Bluetooth', price: 60 }
 ]);
 
 const cart = ref([]);
@@ -70,6 +70,7 @@ provide('esborrarCarret', esborrarCarret);
   border: 1px solid #ccc;
   padding: 15px;
   background-color: #f9f9f9;
+  border-radius: 10px;
 }
 
 h1 {

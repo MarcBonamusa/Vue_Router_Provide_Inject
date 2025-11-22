@@ -3,10 +3,7 @@
 import { inject } from 'vue';
 
 const props = defineProps({
-  product: {
-    type: Object,
-    required: true
-  }
+    product: { type: Object, required: true }
 });
 
 const afegirCarret = inject('afegirCarret');
@@ -19,8 +16,8 @@ const afegir = () => {
 
 <template>
   <div class="productes">
-    <span>{{ product.name }} {{ product.icon }} - {{ product.price }}€</span>
-    <button @click="afegir" class="boto-afegir">Add to Cart</button>
+    <span>{{ product.name }} - {{ product.price }}€</span>
+    <button @click="afegir" class="boto-afegir">Afegir al carret</button>
   </div>
 </template>
 
@@ -32,7 +29,7 @@ const afegir = () => {
   align-items: center;
   padding: 10px;
   border: 1px solid #eee;
-  margin-bottom: 8px;
+  margin-bottom: 15px;
 }
 
 .boto-afegir {
