@@ -1,8 +1,8 @@
 <script setup>
 
 import { ref, computed, provide } from 'vue';
-import CategoryList from './views/CategoryList.vue';
-import Cart from './views/Cart.vue';
+import CategoryList from './components/CategoryList.vue';
+import Cart from './components/Cart.vue';
 
 const products = ref([
   { id: 1, name: 'Auriculars Wireless', price: 50 },
